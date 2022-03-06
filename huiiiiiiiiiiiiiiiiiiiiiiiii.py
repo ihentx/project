@@ -1,1 +1,2 @@
 a = 'hui'
+print(a)
