@@ -4,3 +4,6 @@ while x < 10:
     print(1)
     if x == 7:
         print('lol')
+
+if True:
+    print('te ryiuo')
