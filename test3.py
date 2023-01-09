@@ -2,21 +2,7 @@ import pygame
 
 
 def chess(screen, n):
-    if n % 2 == 0:
-        flag = 1
-    else:
-        flag = 0
-    x = 0
-    while x < a:
-        if flag:
-            y = a // n
-        else:
-            y = 0
-        while y < a:
-            pygame.draw.rect(screen, (0, 0, 0), (x, y, a // n, a // n), width=0)
-            y += a // n * 2
-        x += a // n
-        flag = 1 - flag
+    print('tipo sam pishu', n)
 
 
 if __name__ == '__main__':
@@ -33,4 +19,3 @@ if __name__ == '__main__':
         while pygame.event.wait().type != pygame.QUIT:
             pass
         pygame.quit()
-    
