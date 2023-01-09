@@ -1,34 +1,38 @@
 import pygame
 
 
-def chess(screen, n):
+def chess(screen, a, n):
     if n % 2 == 0:
-        flag = 1
+        even = True
     else:
-        flag = 0
+        even = False
     x = 0
     while x < a:
-        if flag:
-            y = a // n
+        if even:
+            y = a / n
         else:
             y = 0
         while y < a:
-            pygame.draw.rect(screen, (0, 0, 0), (x, y, a // n, a // n), width=0)
-            y += a // n * 2
-        x += a // n
-        flag = 1 - flag
+            pygame.draw.rect(screen, (0, 0, 0), (x, y, a / n, a / n))
+            y += a / n * 2
+        x += a / n
+        if even:
+            even = False
+        else:
+            even = True
 
 
 if __name__ == '__main__':
     a, n = input().split()
-    if type(a) == float or type(n) == float or int(a) % int(n) != 0:
+    if int(a) != float(a) or int(n) != float(n) or int(a) % int(n) != 0:
         print('Неправильный формат ввода')
     else:
         a, n = int(a), int(n)
         pygame.init()
         size = width, height = a, a
         screen = pygame.display.set_mode(size)
-        chess(screen, n)
+        screen.fill((255, 255, 255))
+        chess(screen, a, n)
         pygame.display.flip()
         while pygame.event.wait().type != pygame.QUIT:
             pass
